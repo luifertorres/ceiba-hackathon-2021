@@ -13,6 +13,11 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
+app.UseExceptionHandler(c => c.Run(async context =>
+{
+    await context.Response.WriteAsync("The API in not available");
+}));
+
 app.MapHealthChecks("/healthz");
 app.MapControllers();
 
@@ -20,4 +25,4 @@ app.Run();
 
 static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy() => HttpPolicyExtensions
     .HandleTransientHttpError()
-    .CircuitBreakerAsync(1, TimeSpan.FromSeconds(30));
+    .CircuitBreakerAsync(1, TimeSpan.FromSeconds(1));
