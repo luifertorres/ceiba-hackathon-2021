@@ -2,30 +2,14 @@
 
 ## Descripción de la solución 
 
-Describa brevemente la estrategia de solución para el problema planteado
+Como solución al problema indicado se propuso implementar los patrones de **cache** y **circuit breaker**. 
+
+La solucion a este problema estuvo orientada en conseguir el mejor rendimiento posible maximizando asi el número de peticiones por segundo y minimizando el número de errores y la latencia
 
 ## Drivers que orientan la toma de decisiones para la solución propuesta
 
-Enumere los drivers de arquitectura (requisitos no funcionales) que su equipo tuvo en cuenta en la solución propuesta. P.ej: Seguridad, Usabilidad, etc.
+Rendimiento (RPS, error rate, latency)
 
 ## Diagrama de solución 
 
-Apoyados del plugin de [Draw.io Integration - Henning Dieterichs](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) , puede plasmar un diseño gráfico que soporte la estrategia descrita en el punto anterior. 
-
 ![Diagrama componentes!](./docs/solucion.drawio.svg "Diagrama de Solución")
-
-| Elemento | Descripción |
-| :----    | :---        | 
-| DB | Guardar datos |    
-
-
-## Otras ayudas didácticas
-
-Para efecto de agilizar un poco mas el desarrollo, aqui dejamos algunos dockerfiles-
-
-* [Go](./Dockerfile-go)
-* [Java](./Dockerfile-java)
-* [.NET](./Dockerfile-net6)
-* [Node.js](./Dockerfile-node)
-* [Python](./Dockerfile-py-flask)
-* [Rust](./Dockerfile-rust)
