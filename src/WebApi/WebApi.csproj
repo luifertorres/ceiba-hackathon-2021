@@ -10,13 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Using Include="Microsoft.AspNetCore.Mvc"/>
-    <Using Include="Microsoft.Extensions.Caching.Memory"/>
-    <Using Include="Polly"/>
-    <Using Include="Polly.Extensions.Http"/>
-    <Using Include="System.Net.Mime"/>
-    <Using Include="System.Text"/>
-    <Using Include="System.Text.Json"/>
+    <Using Include="Microsoft.AspNetCore.Mvc" />
+    <Using Include="Microsoft.Extensions.Caching.Memory" />
+    <Using Include="Polly" />
+    <Using Include="Polly.Extensions.Http" />
+    <Using Include="System.Net.Mime" />
+    <Using Include="System.Text" />
+    <Using Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>
