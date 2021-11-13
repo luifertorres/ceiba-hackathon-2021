@@ -4,8 +4,7 @@ builder.Services.AddHealthChecks();
 builder.Services.AddHttpClient("Api", c => 
     {
         c.Timeout = TimeSpan.FromMilliseconds(1000);
-        //c.BaseAddress = new Uri($"http://{builder.Configuration["SVC_API_HOSTNAME"]}/{builder.Configuration["SVC_API_PORT"]}");
-        c.BaseAddress = new("http://api-1.hack.local/");
+        c.BaseAddress = new Uri($"http://{builder.Configuration["SVC_API_HOSTNAME"]}:{builder.Configuration["SVC_API_PORT"]}");
     })
     .AddPolicyHandler(GetCircuitBreakerPolicy());
 builder.Services.AddMemoryCache();
@@ -15,13 +14,13 @@ var app = builder.Build();
 
 app.UseExceptionHandler(c => c.Run(async context =>
 {
-    await context.Response.WriteAsync("The API in not available");
+    await context.Response.WriteAsync("The API is not available");
 }));
 
 app.MapHealthChecks("/healthz");
 app.MapControllers();
 
-app.Run();
+app.Run("http://*:5000");
 
 static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy() => HttpPolicyExtensions
     .HandleTransientHttpError()
